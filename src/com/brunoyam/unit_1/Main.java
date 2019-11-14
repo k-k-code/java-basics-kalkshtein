@@ -102,7 +102,6 @@ public class Main {
             if (minValue > arrayOfValues[i]){
                     minValue = arrayOfValues[i];
             }
-            //TODO i--;
         }
         return minValue;
     }
@@ -119,7 +118,6 @@ public class Main {
             if (maxValue < arrayOfValues[i]){
                 maxValue = arrayOfValues[i];
             }
-            //TODO i--;
         }
         return maxValue;
     }
@@ -132,7 +130,6 @@ public class Main {
         /* Используя цикл for переберите все значения массива, просуммируйте и сохраните сумму всех значений в переменную sum. */
         for (int i = 0; i < arrayOfValues.length; i++){
             sum = arrayOfValues[i] + arrayOfValues[i++];
-            //TODO i--;
         }
         return sum;
     }
@@ -142,7 +139,15 @@ public class Main {
         /* Укажите тип переменной */
         /*тип*/
         int firstPositiveIndex = 0;
+        int i = 0;
         /* Используя цикл while найдите индекс первого положительного значения в массиве и сохраните в переменную firstPositiveIndex */
+        while (i != arrayOfValues.length){
+            if (arrayOfValues[i] >= 0){
+                firstPositiveIndex = i;
+                break;
+            }
+            i++;
+        }
         return firstPositiveIndex;
     }
 
@@ -151,7 +156,15 @@ public class Main {
         /* Укажите тип переменной */
         /*тип*/
         int firstNegativeIndex = 0;
+        int i = 0;
         /* Используя цикл while найдите первое отрицательное значение и сохраните в переменную firstNegativeIndex */
+        while (i != arrayOfValues.length){
+            if (arrayOfValues[i] < 0){
+                firstNegativeIndex = i;
+                break;
+            }
+            i++;
+        }
         return firstNegativeIndex;
     }
 
@@ -161,7 +174,13 @@ public class Main {
         Найдите последнее положительное значение в массиве.
         Верните найденное значение используя ключевое слово return.
          */
-        int i = 0;
+        int i = arrayOfValues.length - 1;
+        while (i != -1){
+            if (arrayOfValues[i] >= 0){
+                break;
+            }
+            i--;
+        }
         return i;
     }
 
@@ -171,20 +190,32 @@ public class Main {
         Найдите последнее отрицательное значение в массиве.
         Верните найденное значение используя ключевое слово return.
          */
-        int i = 0;
+        int i = arrayOfValues.length - 1;
+        while (i != -1){
+            if (arrayOfValues[i] < 0){
+                break;
+            }
+            i--;
+        }
         return i;
     }
 
     private static byte[] countPositiveNegative(int[] arrayOfValues) {
         byte[] result = new byte[2];
-
         /*
         Посчитайте количество положительных и отрицательных значений в массиве arrayOfValues.
         Результат сохраните в массив result:
             В первый элемент - количество положительных
             Во второй элемент - количество отрицательных
          */
-
+        for (int i = 0; i < arrayOfValues.length; i++){
+            if (arrayOfValues[i] >= 0 ){
+                result[0] ++;
+            } else {
+                result[1] ++;
+            }
+        }
+        //System.out.println("resalt" + Arrays.toString(result)); этот сиаут только для самопроверки.
         return result;
     }
 
