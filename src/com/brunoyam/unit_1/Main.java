@@ -94,13 +94,13 @@ public class Main {
     private static /*тип*/int findMinValue(int[] arrayOfValues) {
         /* Укажите тип переменной */
         /*тип*/
-         int minValue = arrayOfValues[0];
+        int minValue = arrayOfValues[0];
         /*
            Используя цикл for переберите все значения массива и сохраните минимальное в переменную minValue.
          */
-        for (int i = 0; i < arrayOfValues.length; i++){
-            if (minValue > arrayOfValues[i]){
-                    minValue = arrayOfValues[i];
+        for (int i = 0; i < arrayOfValues.length; i++) {
+            if (minValue > arrayOfValues[i]) {
+                minValue = arrayOfValues[i];
             }
         }
         return minValue;
@@ -114,8 +114,8 @@ public class Main {
         /*
            Используя цикл for переберите все значения массива и сохраните максимальное в переменную maxValue.
          */
-        for (int i = 0; i < arrayOfValues.length; i++){
-            if (maxValue < arrayOfValues[i]){
+        for (int i = 0; i < arrayOfValues.length; i++) {
+            if (maxValue < arrayOfValues[i]) {
                 maxValue = arrayOfValues[i];
             }
         }
@@ -128,7 +128,7 @@ public class Main {
         /*тип*/
         int sum = 0;
         /* Используя цикл for переберите все значения массива, просуммируйте и сохраните сумму всех значений в переменную sum. */
-        for (int i = 0; i < arrayOfValues.length; i++){
+        for (int i = 0; i < arrayOfValues.length; i++) {
             sum = arrayOfValues[i] + arrayOfValues[i++];
         }
         return sum;
@@ -141,8 +141,8 @@ public class Main {
         int firstPositiveIndex = 0;
         int i = 0;
         /* Используя цикл while найдите индекс первого положительного значения в массиве и сохраните в переменную firstPositiveIndex */
-        while (i != arrayOfValues.length){
-            if (arrayOfValues[i] >= 0){
+        while (i != arrayOfValues.length) {
+            if (arrayOfValues[i] >= 0) {
                 firstPositiveIndex = i;
                 break;
             }
@@ -158,8 +158,8 @@ public class Main {
         int firstNegativeIndex = 0;
         int i = 0;
         /* Используя цикл while найдите первое отрицательное значение и сохраните в переменную firstNegativeIndex */
-        while (i != arrayOfValues.length){
-            if (arrayOfValues[i] < 0){
+        while (i != arrayOfValues.length) {
+            if (arrayOfValues[i] < 0) {
                 firstNegativeIndex = i;
                 break;
             }
@@ -175,8 +175,8 @@ public class Main {
         Верните найденное значение используя ключевое слово return.
          */
         int i = arrayOfValues.length - 1;
-        while (i != -1){
-            if (arrayOfValues[i] >= 0){
+        while (i != -1) {
+            if (arrayOfValues[i] >= 0) {
                 break;
             }
             i--;
@@ -191,8 +191,8 @@ public class Main {
         Верните найденное значение используя ключевое слово return.
          */
         int i = arrayOfValues.length - 1;
-        while (i != -1){
-            if (arrayOfValues[i] < 0){
+        while (i != -1) {
+            if (arrayOfValues[i] < 0) {
                 break;
             }
             i--;
@@ -208,11 +208,11 @@ public class Main {
             В первый элемент - количество положительных
             Во второй элемент - количество отрицательных
          */
-        for (int i = 0; i < arrayOfValues.length; i++){
-            if (arrayOfValues[i] >= 0 ){
-                result[0] ++;
+        for (int i = 0; i < arrayOfValues.length; i++) {
+            if (arrayOfValues[i] >= 0) {
+                result[0]++;
             } else {
-                result[1] ++;
+                result[1]++;
             }
         }
         //System.out.println("resalt" + Arrays.toString(result)); этот сиаут только для самопроверки.
@@ -233,18 +233,41 @@ public class Main {
 
         Верните полученный массив используя ключевое слово return.
          */
-        long [] i = new long[1];
-        return i;
+        long[] arrayOfSums = new long[arrayOfValues.length];
+        for (int i = 0; i < arrayOfValues.length; i++) {
+            for (int j = 0; j < arrayOfValues[i].length; j++) {
+                arrayOfSums[i] = arrayOfSums[i] + arrayOfValues[i][j];
+            }
+        }
+        return arrayOfSums;
     }
 
     private static void sort(int[] array) {
         //Отсортируйте массив array с помощью алгоритма "сортировки выбором".
+
+        for (int i = 0; i < array.length; i++) {
+            int min = array[i];
+            int mini = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < min) {
+                    min = array[j];
+                    mini = j;
+                }
+            }
+            if (i != mini) {
+                int tmp = array[i];
+                array[i] = array[mini];
+                array[mini] = tmp;
+            }
+        }
     }
 
-    public static void main(String[] args) {
+
+
+public static void main(String[]args){
         level1();
         level2();
         level3();
-    }
+        }
 
-}
+        }
